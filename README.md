@@ -28,6 +28,11 @@ If you open only `ChatWithStarsApp.swift` directly, Xcode will show just that fi
 ## Notes
 
 This is an AI-style persona chat simulation for creative fan experience, not real direct celebrity communication.
+
+## Xcode build setting note
+
+- `ChatWithStars/Preview Content` – development asset path placeholder used by Xcode build settings
+
 A visually rich SwiftUI concept app where users can:
 
 1. Pick a star category (Movie Stars, Sports Stars, Spiritual Leaders, Singers, Business Leaders).
