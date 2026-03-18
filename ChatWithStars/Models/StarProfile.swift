@@ -19,5 +19,14 @@ struct StarProfile: Identifiable, Hashable {
         case spiritualGuide
         case singerSongwriter
         case businessStrategist
+    let voiceStyle: VoiceStyle
+    let quickPrompts: [String]
+
+    enum VoiceStyle: String, Hashable {
+        case cinematic
+        case motivational
+        case reflective
+        case melodic
+        case strategic
     }
 }

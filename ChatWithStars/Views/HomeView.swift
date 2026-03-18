@@ -32,6 +32,7 @@ struct HomeView: View {
                         }
 
                         Text("AI persona simulation inspired by public communication styles — not real celebrity DMs.")
+                        Text("Demo note: conversations are AI-styled personas inspired by public speaking patterns.")
                             .font(.footnote)
                             .foregroundStyle(.gray)
                             .padding(.top, 10)

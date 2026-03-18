@@ -31,6 +31,15 @@ private struct StarCard: View {
     var body: some View {
         HStack(spacing: 12) {
             AvatarView(star: star)
+            Image(star.imageName)
+                .resizable()
+                .scaledToFill()
+                .frame(width: 72, height: 72)
+                .clipShape(RoundedRectangle(cornerRadius: 16))
+                .overlay {
+                    RoundedRectangle(cornerRadius: 16)
+                        .stroke(.white.opacity(0.12), lineWidth: 1)
+                }
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(star.name)

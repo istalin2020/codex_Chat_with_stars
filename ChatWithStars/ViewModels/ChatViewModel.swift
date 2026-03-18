@@ -17,6 +17,10 @@ final class ChatViewModel: ObservableObject {
                 text: "🟣 Persona mode: inspired by \(star.name)’s public communication style for entertainment.",
                 timestamp: Date()
             ),
+
+    init(star: StarProfile) {
+        self.star = star
+        messages = [
             ChatMessage(sender: .star, text: star.signatureOpening, timestamp: Date())
         ]
     }
@@ -27,6 +31,7 @@ final class ChatViewModel: ObservableObject {
 
         draftText = ""
         turnIndex += 1
+        draftText = ""
         messages.append(ChatMessage(sender: .user, text: trimmed, timestamp: Date()))
 
         let response = generateReply(for: trimmed)
@@ -124,5 +129,18 @@ final class ChatViewModel: ObservableObject {
         guard !options.isEmpty else { return "" }
         let idx = abs((turnIndex * 7 + star.name.hashValue) % options.count)
         return options[idx]
+    }
+        switch star.voiceStyle {
+        case .cinematic:
+            return "Every scene has conflict before the applause. For ‘\(input)’, take one bold action today, one patient action tomorrow, and keep your heart larger than your fear."
+        case .motivational:
+            return "Great question. Break ‘\(input)’ into reps: discipline, recovery, and repetition. Small wins daily beat rare bursts of intensity."
+        case .reflective:
+            return "When you ask about ‘\(input)’, notice your breath and soften your judgment. Peace grows when awareness meets compassion."
+        case .melodic:
+            return "I hear the emotion behind ‘\(input)’. Write one honest line, speak it out loud, and let vulnerability shape your next step."
+        case .strategic:
+            return "For ‘\(input)’, start with purpose, then prioritize learning velocity. Build feedback loops, empower your team, and iterate with humility."
+        }
     }
 }
